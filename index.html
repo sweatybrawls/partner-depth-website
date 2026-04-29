@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PartnerDepth — Affiliate &amp; partner marketing consulting</title>
-  <meta name="description" content="Strategy, audits, and growth for affiliate programs in web hosting, WordPress, and SaaS. The strategy layer most consultants skip." />
+  <meta name="description" content="Strategy, audits, and growth for affiliate and partner programs. The strategy layer most consultants skip." />
   <meta name="theme-color" content="#26215C" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="PartnerDepth — Affiliate &amp; partner marketing consulting" />
-  <meta property="og:description" content="Strategy, audits, and growth for affiliate programs in web hosting, WordPress, and SaaS." />
+  <meta property="og:description" content="Strategy, audits, and growth for affiliate and partner programs." />
   <meta property="og:url" content="https://partnerdepth.com/" />
   <meta property="og:site_name" content="PartnerDepth" />
   <meta property="og:image" content="https://partnerdepth.com/assets/partnerdepth_horizontal.png" />
@@ -18,7 +18,7 @@
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="PartnerDepth — Affiliate &amp; partner marketing consulting" />
-  <meta name="twitter:description" content="Strategy, audits, and growth for affiliate programs in web hosting, WordPress, and SaaS." />
+  <meta name="twitter:description" content="Strategy, audits, and growth for affiliate and partner programs." />
 
   <link rel="canonical" href="https://partnerdepth.com/" />
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
@@ -41,7 +41,7 @@
     "name": "PartnerDepth",
     "url": "https://partnerdepth.com",
     "logo": "https://partnerdepth.com/assets/partnerdepth_horizontal.png",
-    "description": "Affiliate and partner marketing consulting for web hosting, WordPress, and SaaS companies.",
+    "description": "Affiliate and partner marketing consulting.",
     "parentOrganization": {
       "@type": "Organization",
       "name": "Cambyr",
@@ -65,7 +65,15 @@
 
       <div class="nav__menu" id="navMenu">
         <ul class="nav__links">
-          <li><a href="#services">Services</a></li>
+          <li class="nav__item--dropdown">
+            <a href="/services" class="nav__dropdown-toggle">Services <svg width="11" height="11" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <ul class="nav__dropdown">
+              <li><a href="/services/launch">Program launch</a></li>
+              <li><a href="/services/audit">Program audit</a></li>
+              <li><a href="/services/strategy">Channel strategy</a></li>
+              <li><a href="/services/growth">Recruitment</a></li>
+            </ul>
+          </li>
           <li><a href="#approach">Approach</a></li>
           <li><a href="#case-studies">Case studies</a></li>
         </ul>
@@ -112,7 +120,7 @@
       <p class="t-eyebrow">Affiliate &amp; partner consulting</p>
       <h1 class="hero__title">The strategy layer<br/>most consultants skip.</h1>
       <p class="hero__lead">
-        We build, audit, and grow affiliate programs for web hosting, WordPress, and SaaS companies — with the analytical rigor most agencies skip past.
+        We build, audit, and grow affiliate programs — with the analytical rigor most agencies skip past.
       </p>
       <div class="hero__cta">
         <button class="btn btn--primary btn--lg" data-open-modal>Book a strategy call</button>
@@ -125,26 +133,36 @@
   <section class="services" id="services">
     <div class="container">
       <p class="t-eyebrow">What we do</p>
-      <h2 class="t-h1 services__title">Three engagements. One goal: a program that performs.</h2>
+      <h2 class="t-h1 services__title">Four engagements. One goal: a program that performs.</h2>
       <div class="services__grid">
 
-        <article class="card">
+        <a class="pg-service-card" href="/services/launch">
+          <p class="t-eyebrow">Launch</p>
+          <h3>Program Launch</h3>
+          <p>Build your affiliate program from the ground up. Platform, tracking, commissions, campaigns, and a recruitment pipeline ready on day one.</p>
+          <span class="pg-service-card__more">5&ndash;6 weeks &middot; Fixed fee &nbsp;&rarr;</span>
+        </a>
+
+        <a class="pg-service-card" href="/services/audit">
           <p class="t-eyebrow">Audit</p>
-          <h3 class="t-h3">Program health scorecard</h3>
-          <p class="t-body">A 12-point diagnostic across recruiting, attribution, commission structure, and partner mix. Delivered in 14 days.</p>
-        </article>
+          <h3>Program Health Scorecard</h3>
+          <p>A 12-point diagnostic across recruiting, attribution, commission structure, and partner mix. Delivered in 14 days.</p>
+          <span class="pg-service-card__more">14 days &middot; Fixed fee &nbsp;&rarr;</span>
+        </a>
 
-        <article class="card">
+        <a class="pg-service-card" href="/services/strategy">
           <p class="t-eyebrow">Strategy</p>
-          <h3 class="t-h3">Channel architecture</h3>
-          <p class="t-body">Commission design, tier structure, attribution model, and tooling stack — built around your CAC, LTV, and margin profile.</p>
-        </article>
+          <h3>Channel Strategy</h3>
+          <p>Commission design, tier structure, attribution model, and tooling stack — built around your CAC, LTV, and margin profile.</p>
+          <span class="pg-service-card__more">4&ndash;6 weeks &middot; Project-based &nbsp;&rarr;</span>
+        </a>
 
-        <article class="card">
+        <a class="pg-service-card" href="/services/growth">
           <p class="t-eyebrow">Growth</p>
-          <h3 class="t-h3">Recruitment &amp; management</h3>
-          <p class="t-body">Targeted publisher outreach, activation playbooks, and ongoing optimization. Reporting that means something.</p>
-        </article>
+          <h3>Recruitment &amp; Management</h3>
+          <p>Targeted publisher outreach, activation playbooks, and ongoing optimization. Reporting that means something.</p>
+          <span class="pg-service-card__more">3-month minimum &middot; Monthly retainer &nbsp;&rarr;</span>
+        </a>
 
       </div>
     </div>
@@ -255,26 +273,16 @@
             <span class="footer__wordmark-depth">DEPTH</span>
           </div>
         </div>
-        <p class="footer__tagline">Affiliate &amp; partner marketing consulting for web hosting, WordPress, and SaaS.</p>
+        <p class="footer__tagline">Affiliate &amp; partner marketing consulting.</p>
       </div>
 
       <div class="footer__col">
         <p class="footer__heading">Services</p>
         <ul>
-          <li><a href="#services">Program audit</a></li>
-          <li><a href="#services">Channel strategy</a></li>
-          <li><a href="#services">Recruitment</a></li>
-          <li><a href="#services">Reporting</a></li>
-        </ul>
-      </div>
-
-      <div class="footer__col">
-        <p class="footer__heading">Verticals</p>
-        <ul>
-          <li><a href="#services">Web hosting</a></li>
-          <li><a href="#services">WordPress plugins</a></li>
-          <li><a href="#services">SaaS</a></li>
-          <li><a href="#services">Other</a></li>
+          <li><a href="/services/launch">Program launch</a></li>
+          <li><a href="/services/audit">Program audit</a></li>
+          <li><a href="/services/strategy">Channel strategy</a></li>
+          <li><a href="/services/growth">Recruitment</a></li>
         </ul>
       </div>
 

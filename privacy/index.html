@@ -12,6 +12,7 @@
 
   <link rel="stylesheet" href="/css/styles.css?v=9" />
   <link rel="stylesheet" href="/css/doc.css?v=1" />
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
 
@@ -26,11 +27,19 @@
       </button>
       <div class="nav__menu" id="navMenu">
         <ul class="nav__links">
-          <li><a href="/#services">Services</a></li>
+          <li class="nav__item--dropdown">
+            <a href="/services" class="nav__dropdown-toggle">Services <svg width="11" height="11" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <ul class="nav__dropdown">
+              <li><a href="/services/launch">Program launch</a></li>
+              <li><a href="/services/audit">Program audit</a></li>
+              <li><a href="/services/strategy">Channel strategy</a></li>
+              <li><a href="/services/growth">Recruitment</a></li>
+            </ul>
+          </li>
           <li><a href="/#approach">Approach</a></li>
           <li><a href="/#case-studies">Case studies</a></li>
         </ul>
-        <a class="btn btn--primary nav__cta" href="/#book">Book a call</a>
+        <button class="btn btn--primary nav__cta" data-open-modal>Book a call</button>
       </div>
     </div>
   </nav>
@@ -133,24 +142,15 @@
             <span class="footer__wordmark-depth">DEPTH</span>
           </div>
         </div>
-        <p class="footer__tagline">Affiliate &amp; partner marketing consulting for web hosting, WordPress, and SaaS.</p>
+        <p class="footer__tagline">Affiliate &amp; partner marketing consulting.</p>
       </div>
       <div class="footer__col">
         <p class="footer__heading">Services</p>
         <ul>
-          <li><a href="/#services">Program audit</a></li>
-          <li><a href="/#services">Channel strategy</a></li>
-          <li><a href="/#services">Recruitment</a></li>
-          <li><a href="/#services">Reporting</a></li>
-        </ul>
-      </div>
-      <div class="footer__col">
-        <p class="footer__heading">Verticals</p>
-        <ul>
-          <li><a href="/#services">Web hosting</a></li>
-          <li><a href="/#services">WordPress plugins</a></li>
-          <li><a href="/#services">SaaS</a></li>
-          <li><a href="/#services">Other</a></li>
+          <li><a href="/services/launch">Program launch</a></li>
+          <li><a href="/services/audit">Program audit</a></li>
+          <li><a href="/services/strategy">Channel strategy</a></li>
+          <li><a href="/services/growth">Recruitment</a></li>
         </ul>
       </div>
       <div class="footer__col">
@@ -176,6 +176,62 @@
       </div>
     </div>
   </footer>
+
+  <div class="modal" id="bookModal" role="dialog" aria-modal="true" aria-labelledby="bookModalTitle" hidden>
+    <div class="modal__backdrop" data-close-modal></div>
+    <div class="modal__panel">
+      <button class="modal__close" data-close-modal aria-label="Close dialog">&times;</button>
+
+      <div class="modal__form" id="modalForm">
+        <p class="t-eyebrow">Strategy call</p>
+        <h3 class="t-h2" id="bookModalTitle">Book a 30-minute call.</h3>
+        <p class="t-body modal__lead">Tell us a bit about the program. We'll come back with what's worth talking about.</p>
+
+        <form id="bookForm" novalidate>
+          <div class="field">
+            <label for="f-name">Name</label>
+            <input id="f-name" name="name" type="text" class="input" required autocomplete="name" />
+          </div>
+          <div class="field">
+            <label for="f-email">Work email</label>
+            <input id="f-email" name="email" type="email" class="input" required autocomplete="email" />
+          </div>
+          <div class="field">
+            <label for="f-company">Company</label>
+            <input id="f-company" name="company" type="text" class="input" required autocomplete="organization" />
+          </div>
+          <div class="field">
+            <label for="f-vertical">Vertical</label>
+            <select id="f-vertical" name="vertical" class="input">
+              <option>Web hosting</option>
+              <option>WordPress plugin</option>
+              <option>SaaS</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-notes">What's on your mind? <span class="field__optional">(optional)</span></label>
+            <textarea id="f-notes" name="notes" class="input" rows="3"></textarea>
+          </div>
+          <div class="cf-turnstile" data-sitekey="0x4AAAAAADF0j3YSPPfP0aAf" data-action="book-call" data-theme="light" data-size="flexible"></div>
+          <p class="form__error" id="formError" hidden></p>
+          <div class="form__actions">
+            <button type="submit" class="btn btn--primary" id="submitBtn">Send</button>
+            <button type="button" class="btn btn--secondary" data-close-modal>Cancel</button>
+          </div>
+          <input type="text" name="company_website" tabindex="-1" autocomplete="off" class="honeypot" aria-hidden="true" />
+        </form>
+      </div>
+
+      <div class="modal__success" id="modalSuccess" hidden>
+        <p class="t-eyebrow">Thanks</p>
+        <h3 class="t-h2">We'll be in touch within one business day.</h3>
+        <p class="t-body">Replying from the same email address you used keeps things in one thread.</p>
+        <button class="btn btn--primary modal__close-btn" data-close-modal>Close</button>
+      </div>
+
+    </div>
+  </div>
 
   <script>
     // Year stamp + nav scroll state (lightweight, no main.js dep)
