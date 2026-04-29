@@ -638,14 +638,15 @@ textarea.input { resize: vertical; min-height: 80px; font-family: inherit; }
    Replaces the vertical PNG lockup which had dark navy text on dark navy bg.
    ========================================================================= */
 .footer__wordmark {
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
-  gap: 14px;
+  align-items: center;
+  gap: 16px;
   margin-bottom: var(--s-5);
 }
 .footer__mark {
-  width: 56px;
-  height: 56px;
+  width: 80px;
+  height: 80px;
   display: block;
 }
 .footer__wordmark-text {
