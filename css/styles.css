@@ -153,7 +153,7 @@
 /* ---------- Reset ---------- */
 *, *::before, *::after { box-sizing: border-box; }
 html { font-family: var(--font-sans); color: var(--fg-1); -webkit-font-smoothing: antialiased; scroll-behavior: smooth; scroll-padding-top: 80px; }
-body { margin: 0; background: var(--bg-1); }
+body { margin: 0; background: var(--bg-1); overflow-x: hidden; }
 img { max-width: 100%; display: block; }
 ul, ol { list-style: none; padding: 0; margin: 0; }
 button { font-family: inherit; cursor: pointer; border: 0; background: none; }
@@ -272,15 +272,15 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .hero {
   position: relative;
   overflow: hidden;
-  padding: var(--s-24) var(--container-pad) var(--s-32);
 }
 .hero__inner {
   position: relative;
   max-width: var(--container-max);
   margin: 0 auto;
+  padding: var(--s-24) var(--container-pad) var(--s-32);
 }
 .hero__title {
-  font-size: clamp(40px, 6vw, 72px);
+  font-size: clamp(28px, 6vw, 72px);
   font-weight: var(--fw-bold);
   letter-spacing: var(--ls-tight);
   line-height: 1.02;
@@ -592,7 +592,7 @@ textarea.input { resize: vertical; min-height: 80px; font-family: inherit; }
   }
   .nav__cta { width: 100%; }
 
-  .hero { padding: var(--s-16) var(--container-pad) var(--s-20); }
+  .hero__inner { padding: var(--s-16) var(--container-pad) var(--s-20); }
   .hero__motif { display: none; }
   .hero__lead { font-size: var(--fs-18); }
 
@@ -669,4 +669,95 @@ textarea.input { resize: vertical; min-height: 80px; font-family: inherit; }
   letter-spacing: var(--ls-widest);
   color: var(--pd-lavender);
   text-transform: uppercase;
+}
+
+/* =========================================================================
+   Hero specimen card — "Program Health Scorecard" mock on the right side
+   ========================================================================= */
+.hero__specimen {
+  position: absolute;
+  top: 240px;
+  right: var(--container-pad);
+  width: 380px;
+  z-index: 1;
+}
+.specimen {
+  background: #fff;
+  border: 1px solid var(--border-1);
+  border-radius: var(--r-xl);
+  box-shadow: var(--shadow-md);
+  padding: var(--s-6);
+  position: relative;
+}
+.specimen__head {
+  border-bottom: 1px solid var(--border-1);
+  padding-bottom: var(--s-4);
+  margin-bottom: var(--s-5);
+}
+.specimen__eyebrow {
+  font-size: var(--fs-12);
+  margin-bottom: 8px;
+}
+.specimen__title {
+  margin: 0;
+  font-size: var(--fs-18);
+  font-weight: var(--fw-semibold);
+  color: var(--pd-navy);
+  letter-spacing: var(--ls-tight);
+}
+.specimen__rows {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.specimen__row-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 6px;
+  gap: 12px;
+}
+.specimen__label {
+  font-size: var(--fs-13);
+  color: var(--fg-2);
+}
+.specimen__value {
+  font-size: var(--fs-15);
+  font-weight: var(--fw-semibold);
+  color: var(--pd-navy);
+}
+.specimen__bar {
+  height: 6px;
+  background: var(--bg-tint);
+  border-radius: var(--r-pill);
+  overflow: hidden;
+}
+.specimen__bar > span {
+  display: block;
+  height: 100%;
+  background: var(--pd-purple);
+  border-radius: var(--r-pill);
+  transition: width 600ms var(--ease-out);
+}
+.specimen__note {
+  margin: var(--s-5) 0 0;
+  padding-top: var(--s-3);
+  border-top: 1px solid var(--border-1);
+  font-size: var(--fs-12);
+  color: var(--fg-3);
+  letter-spacing: var(--ls-wide);
+}
+
+/* Constrain hero text so it doesn't tuck under the card on mid-width viewports */
+.hero__title { max-width: 620px; }
+.hero__lead { max-width: 520px; }
+
+@media (max-width: 1180px) {
+  .hero__specimen { width: 320px; top: var(--s-20); }
+}
+
+@media (max-width: 960px) {
+  .hero__specimen { display: none; }
+  .hero__title { max-width: none; }
+  .hero__lead { max-width: none; }
 }

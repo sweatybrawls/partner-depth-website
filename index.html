@@ -28,7 +28,7 @@
   <link rel="preload" href="/fonts/Inter-VariableFont_opsz_wght.ttf" as="font" type="font/ttf" crossorigin />
 
   <!-- Bump ?v= on each CSS/JS deploy to bust browser cache -->
-  <link rel="stylesheet" href="/css/styles.css?v=4" />
+  <link rel="stylesheet" href="/css/styles.css?v=9" />
 
   <!-- Cloudflare Turnstile — bot protection on the booking form -->
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
@@ -76,13 +76,39 @@
 
   <!-- ===== Hero ===== -->
   <header class="hero">
-    <div aria-hidden="true" class="hero__motif">
-      <span style="--a:.18"></span>
-      <span style="--a:.32"></span>
-      <span style="--a:.55"></span>
-      <span style="--a:1"></span>
-    </div>
     <div class="hero__inner">
+      <aside class="hero__specimen" aria-hidden="true">
+        <article class="specimen">
+          <header class="specimen__head">
+            <p class="t-eyebrow specimen__eyebrow">Audit &middot; 14-day deliverable</p>
+            <h3 class="specimen__title">Program Health Scorecard</h3>
+          </header>
+          <div class="specimen__rows">
+            <div class="specimen__row">
+              <div class="specimen__row-head">
+                <span class="specimen__label">Active publisher ratio</span>
+                <span class="specimen__value t-num">38%</span>
+              </div>
+              <div class="specimen__bar"><span style="width:38%"></span></div>
+            </div>
+            <div class="specimen__row">
+              <div class="specimen__row-head">
+                <span class="specimen__label">Top-10 revenue share</span>
+                <span class="specimen__value t-num">71%</span>
+              </div>
+              <div class="specimen__bar"><span style="width:71%"></span></div>
+            </div>
+            <div class="specimen__row">
+              <div class="specimen__row-head">
+                <span class="specimen__label">Incremental EPC</span>
+                <span class="specimen__value t-num">$2.41</span>
+              </div>
+              <div class="specimen__bar"><span style="width:48%"></span></div>
+            </div>
+          </div>
+          <p class="specimen__note t-mono">Sample &middot; 3 of 12 metrics</p>
+        </article>
+      </aside>
       <p class="t-eyebrow">Affiliate &amp; partner consulting</p>
       <h1 class="hero__title">The strategy layer<br/>most consultants skip.</h1>
       <p class="hero__lead">
