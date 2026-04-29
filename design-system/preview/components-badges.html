@@ -1,0 +1,26 @@
+<!DOCTYPE html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+html,body{margin:0;padding:0;background:#fff;font-family:var(--font-sans);}
+body{padding:24px;display:flex;flex-direction:column;gap:14px;}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.badge{display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border-radius:999px;font-size:12px;font-weight:600;letter-spacing:0.02em;}
+.b-info{background:#E5E3F8;color:#322C75;}
+.b-ok{background:#E6F6EE;color:#1F9D6E;}
+.b-warn{background:#FAF2DC;color:#8C6610;}
+.b-danger{background:#FBE9E7;color:#C2392E;}
+.b-neutral{background:#F2F1F4;color:#3F3D4F;}
+.b-outline{background:transparent;color:#26215C;border:1px solid #CFCBF3;}
+.dot{width:6px;height:6px;border-radius:999px;background:currentColor;}
+.label{font-size:11px;font-weight:600;color:var(--fg-3);letter-spacing:0.12em;text-transform:uppercase;}
+</style></head><body>
+<div class="label">Status pills</div>
+<div class="row">
+  <span class="badge b-ok"><span class="dot"></span>Active</span>
+  <span class="badge b-warn"><span class="dot"></span>Pending review</span>
+  <span class="badge b-danger"><span class="dot"></span>Reversed</span>
+  <span class="badge b-info">Tier 1</span>
+  <span class="badge b-neutral">Draft</span>
+  <span class="badge b-outline">SaaS</span>
+</div>
+</body></html>

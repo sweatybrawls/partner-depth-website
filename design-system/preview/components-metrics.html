@@ -1,0 +1,31 @@
+<!DOCTYPE html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+html,body{margin:0;padding:0;background:#fff;font-family:var(--font-sans);}
+body{padding:22px;display:flex;flex-direction:column;gap:14px;}
+.metric{display:flex;flex-direction:column;gap:4px;padding:14px 18px;border:1px solid #E5E4E9;border-radius:12px;background:#fff;}
+.row{display:flex;gap:14px;}
+.label{font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#7A7889;}
+.value{font-size:32px;font-weight:700;letter-spacing:-0.02em;color:#26215C;font-variant-numeric:tabular-nums;}
+.delta{font-size:12px;font-weight:600;}
+.up{color:#1F9D6E;}
+.down{color:#C2392E;}
+</style></head><body>
+<div class="row">
+  <div class="metric" style="flex:1;">
+    <div class="label">Active publishers</div>
+    <div class="value">348</div>
+    <div class="delta up">↑ 12 this month</div>
+  </div>
+  <div class="metric" style="flex:1;">
+    <div class="label">EPC, blended</div>
+    <div class="value">$1.84</div>
+    <div class="delta up">↑ 8.2%</div>
+  </div>
+  <div class="metric" style="flex:1;">
+    <div class="label">Reversal rate</div>
+    <div class="value">9.4%</div>
+    <div class="delta down">↑ 1.1pp</div>
+  </div>
+</div>
+</body></html>

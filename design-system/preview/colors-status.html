@@ -1,0 +1,20 @@
+<!DOCTYPE html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+html,body{margin:0;padding:0;background:#fff;font-family:var(--font-sans);}
+body{padding:20px;}
+.row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+.box{border:1px solid var(--border-1);border-radius:10px;overflow:hidden;}
+.swatch{height:54px;}
+.meta{padding:10px 12px;display:flex;justify-content:space-between;align-items:center;}
+.meta .n{font-size:13px;font-weight:600;}
+.meta .h{font-family:var(--font-mono);font-size:11px;color:var(--fg-3);}
+.tag{display:inline-block;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600;margin-top:4px;}
+</style></head><body>
+<div class="row">
+  <div class="box"><div class="swatch" style="background:#1F9D6E;"></div><div class="meta"><div><div class="n">Success</div></div><div class="h">#1F9D6E</div></div></div>
+  <div class="box"><div class="swatch" style="background:#B8860B;"></div><div class="meta"><div><div class="n">Warning</div></div><div class="h">#B8860B</div></div></div>
+  <div class="box"><div class="swatch" style="background:#C2392E;"></div><div class="meta"><div><div class="n">Danger</div></div><div class="h">#C2392E</div></div></div>
+  <div class="box"><div class="swatch" style="background:#534AB7;"></div><div class="meta"><div><div class="n">Info</div></div><div class="h">#534AB7</div></div></div>
+</div>
+</body></html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+html,body{margin:0;padding:0;background:#fff;font-family:var(--font-sans);}
+body{padding:22px;}
+.field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px;max-width:420px;}
+.label{font-size:13px;font-weight:500;color:var(--pd-navy);}
+.input{font-family:inherit;font-size:15px;padding:10px 14px;border:1px solid #E5E4E9;border-radius:8px;background:#fff;color:var(--fg-1);outline:none;transition:all 200ms;}
+.input:focus{border-color:#534AB7;box-shadow:0 0 0 3px rgba(83,74,183,0.32);}
+.input::placeholder{color:#9C9AA9;}
+.help{font-size:12px;color:var(--fg-3);}
+.row{display:flex;gap:10px;align-items:center;}
+.check{width:18px;height:18px;accent-color:#534AB7;}
+</style></head><body>
+<div class="field">
+  <label class="label">Work email</label>
+  <input class="input" placeholder="you@company.com" value="alex@hostingco.com" />
+  <div class="help">Used for the discovery call only.</div>
+</div>
+<div class="row">
+  <input type="checkbox" class="check" checked id="c1"/>
+  <label for="c1" style="font-size:14px;color:#3F3D4F;">Send me the free Affiliate Audit Checklist</label>
+</div>
+</body></html>

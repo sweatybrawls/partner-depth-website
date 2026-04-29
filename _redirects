@@ -1,0 +1,9 @@
+# Cloudflare Pages — redirects
+# Docs: https://developers.cloudflare.com/pages/configuration/redirects/
+#
+# Format: <source> <destination> <status>
+# Examples:
+#   /old-path  /new-path  301
+#   https://www.partnerdepth.com/*  https://partnerdepth.com/:splat  301
+
+# (none yet)
