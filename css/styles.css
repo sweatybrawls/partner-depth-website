@@ -261,8 +261,7 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
   flex-shrink: 0;
   opacity: 0.6;
 }
-.nav__item--dropdown:hover .nav__dropdown-toggle svg,
-.nav__item--dropdown:focus-within .nav__dropdown-toggle svg { transform: rotate(180deg); opacity: 1; }
+.nav__item--dropdown:hover .nav__dropdown-toggle svg { transform: rotate(180deg); opacity: 1; }
 .nav__dropdown {
   position: absolute;
   top: 100%;
@@ -281,8 +280,7 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
   transition: opacity var(--dur-base) var(--ease-out), transform var(--dur-base) var(--ease-out);
   z-index: 100;
 }
-.nav__item--dropdown:hover .nav__dropdown,
-.nav__item--dropdown:focus-within .nav__dropdown { opacity: 1; pointer-events: auto; transform: translateY(0); }
+.nav__item--dropdown:hover .nav__dropdown { opacity: 1; pointer-events: auto; transform: translateY(0); }
 .nav__dropdown li { margin: 0; }
 .nav__dropdown a {
   display: block;
