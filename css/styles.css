@@ -266,7 +266,7 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
   position: absolute;
   top: 100%;
   left: -12px;
-  min-width: 172px;
+  min-width: 220px;
   background: #fff;
   border: 1px solid var(--border-1);
   border-radius: 10px;
@@ -283,15 +283,24 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .nav__item--dropdown:hover .nav__dropdown { opacity: 1; pointer-events: auto; transform: translateY(0); }
 .nav__dropdown li { margin: 0; }
 .nav__dropdown a {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
   padding: 8px 12px;
   border-radius: 6px;
-  font-size: var(--fs-14);
-  font-weight: var(--fw-medium);
-  color: var(--fg-2);
-  white-space: nowrap;
+  color: inherit;
 }
-.nav__dropdown a:hover { background: var(--bg-tint); color: var(--pd-navy); }
+.nav__dropdown a:hover { background: var(--bg-tint); }
+.nav__dropdown-name {
+  font-size: var(--fs-14);
+  font-weight: var(--fw-semibold);
+  color: var(--pd-navy);
+}
+.nav__dropdown-desc {
+  font-size: var(--fs-12);
+  font-weight: var(--fw-normal);
+  color: var(--fg-2);
+}
 
 /* Mobile toggle */
 .nav__toggle {
