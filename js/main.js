@@ -27,7 +27,6 @@
       var open = navMenu.classList.toggle('is-open');
       navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
-    // Close mobile menu on any link click
     navMenu.addEventListener('click', function (e) {
       var t = e.target;
       if (t && (t.tagName === 'A' || t.closest('a'))) {
@@ -46,14 +45,12 @@
   function openModal() {
     if (!modal) return;
     lastFocused = document.activeElement;
-    // reset to form view in case user previously submitted
     if (modalForm) modalForm.hidden = false;
     if (modalSuccess) modalSuccess.hidden = true;
     var errEl = document.getElementById('formError');
     if (errEl) { errEl.hidden = true; errEl.textContent = ''; }
     var formEl = document.getElementById('bookForm');
     if (formEl) formEl.reset();
-
     modal.hidden = false;
     document.body.style.overflow = 'hidden';
     var firstInput = modal.querySelector('input, select, textarea, button');
@@ -101,20 +98,26 @@
       e.preventDefault();
       if (errorEl) { errorEl.hidden = true; errorEl.textContent = ''; }
 
-      // Native validation
       if (!form.checkValidity()) {
         form.reportValidity();
         return;
       }
 
       var data = new FormData(form);
+      var turnstileToken = (data.get('cf-turnstile-response') || '').toString();
+
+      if (!turnstileToken) {
+        showError('Please complete the verification challenge before submitting.');
+        return;
+      }
+
       var payload = {
         name: (data.get('name') || '').toString().trim(),
         email: (data.get('email') || '').toString().trim(),
         company: (data.get('company') || '').toString().trim(),
         vertical: (data.get('vertical') || '').toString().trim(),
         notes: (data.get('notes') || '').toString().trim(),
-        // Honeypot — bots fill this; if present, server discards silently
+        'cf-turnstile-response': turnstileToken,
         company_website: (data.get('company_website') || '').toString()
       };
 
@@ -137,7 +140,6 @@
             showError(msg);
             return;
           }
-          // Success — swap the modal view
           if (modalForm) modalForm.hidden = true;
           if (modalSuccess) modalSuccess.hidden = false;
         })
@@ -148,6 +150,9 @@
           if (submitBtn) {
             submitBtn.disabled = false;
             submitBtn.textContent = 'Send';
+          }
+          if (window.turnstile && typeof window.turnstile.reset === 'function') {
+            try { window.turnstile.reset(); } catch (_) { /* no-op */ }
           }
         });
     });

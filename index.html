@@ -29,6 +29,9 @@
 
   <link rel="stylesheet" href="/css/styles.css" />
 
+  <!-- Cloudflare Turnstile — bot protection on the booking form -->
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
   <!-- Schema.org Organization -->
   <script type="application/ld+json">
   {
@@ -302,6 +305,15 @@
             <textarea id="f-notes" name="notes" class="input" rows="3"></textarea>
           </div>
 
+          <!-- Turnstile widget. Replace data-sitekey with your real Turnstile site key. -->
+          <div
+            class="cf-turnstile"
+            data-sitekey="0x4AAAAAADF0j3YSPPfP0aAf"
+            data-action="book-call"
+            data-theme="light"
+            data-size="flexible"
+          ></div>
+
           <p class="form__error" id="formError" hidden></p>
 
           <div class="form__actions">
@@ -311,6 +323,22 @@
 
           <!-- Honeypot — bots will fill this; humans won't -->
           <input type="text" name="company_website" tabindex="-1" autocomplete="off" class="honeypot" aria-hidden="true" />
+        </form>
+      </div>
+
+      <div class="modal__success" id="modalSuccess" hidden>
+        <p class="t-eyebrow">Thanks</p>
+        <h3 class="t-h2">We'll be in touch within one business day.</h3>
+        <p class="t-body">Replying from the same email address you used keeps things in one thread.</p>
+        <button class="btn btn--primary modal__close-btn" data-close-modal>Close</button>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="/js/main.js" defer></script>
+</body>
+</html>
         </form>
       </div>
 

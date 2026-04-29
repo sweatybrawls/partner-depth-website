@@ -5,9 +5,10 @@
  * Sends an email via Resend (https://resend.com).
  *
  * Required environment variables (set in Cloudflare Pages → Settings → Environment variables):
- *   RESEND_API_KEY     — your Resend API key (server-side only; never expose)
- *   BOOKING_EMAIL_TO   — destination inbox (e.g. mike@partnerdepth.com)
- *   BOOKING_EMAIL_FROM — verified sender on Resend (e.g. "PartnerDepth <hello@partnerdepth.com>")
+ *   RESEND_API_KEY        — your Resend API key (server-side only; never expose)
+ *   BOOKING_EMAIL_TO      — destination inbox (e.g. mike@partnerdepth.com)
+ *   BOOKING_EMAIL_FROM    — verified sender on Resend (e.g. "PartnerDepth <hello@partnerdepth.com>")
+ *   TURNSTILE_SECRET_KEY  — Cloudflare Turnstile secret (Secret type; pairs with the site key in index.html)
  *
  * Optional:
  *   ALLOWED_ORIGIN     — restrict CORS (defaults to '*'). Set to "https://partnerdepth.com" in production.
@@ -67,11 +68,47 @@ export async function onRequestPost({ request, env }) {
   const vertical = String(payload.vertical || '').trim();
   const notes = String(payload.notes || '').trim();
   const honeypot = String(payload.company_website || '').trim();
+  const turnstileToken = String(payload['cf-turnstile-response'] || '').trim();
 
   // ---- Honeypot — bots fill this; humans don't ----
   // Return success to bots so they think it worked, but discard.
   if (honeypot) {
     return json({ ok: true }, 200, cors);
+  }
+
+  // ---- Cloudflare Turnstile verification ----
+  if (!env.TURNSTILE_SECRET_KEY) {
+    console.error('[book-call] Missing TURNSTILE_SECRET_KEY env var');
+    return json({ error: 'Server misconfigured. Email hello@partnerdepth.com directly.' }, 500, cors);
+  }
+  if (!turnstileToken) {
+    return json({ error: 'Verification challenge missing. Reload the page and try again.' }, 400, cors);
+  }
+  try {
+    const clientIp = request.headers.get('CF-Connecting-IP') || '';
+    const verifyBody = new URLSearchParams();
+    verifyBody.append('secret', env.TURNSTILE_SECRET_KEY);
+    verifyBody.append('response', turnstileToken);
+    if (clientIp) verifyBody.append('remoteip', clientIp);
+
+    const verifyRes = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: verifyBody
+    });
+    const verifyJson = await verifyRes.json();
+    if (!verifyJson || !verifyJson.success) {
+      console.warn('[book-call] Turnstile rejected', verifyJson && verifyJson['error-codes']);
+      return json({ error: 'Verification failed. Reload the page and try again.' }, 403, cors);
+    }
+    // Optional: also check verifyJson.action === 'book-call' if you set data-action on the widget
+    if (verifyJson.action && verifyJson.action !== 'book-call') {
+      console.warn('[book-call] Turnstile action mismatch:', verifyJson.action);
+      return json({ error: 'Verification mismatch.' }, 403, cors);
+    }
+  } catch (err) {
+    console.error('[book-call] Turnstile verify failed', err);
+    return json({ error: 'Could not verify. Try again.' }, 502, cors);
   }
 
   // ---- Validate ----

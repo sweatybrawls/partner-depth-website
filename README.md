@@ -79,6 +79,7 @@ Set required env vars in `.dev.vars` (see [env vars](#environment-variables) bel
    | `RESEND_API_KEY` | `re_xxxxxxxx` | From [resend.com/api-keys](https://resend.com/api-keys). Mark as *encrypted*. |
    | `BOOKING_EMAIL_TO` | `mike@partnerdepth.com` | Where booking-form submissions land. |
    | `BOOKING_EMAIL_FROM` | `PartnerDepth <hello@partnerdepth.com>` | Must be a verified sender on Resend. |
+   | `TURNSTILE_SECRET_KEY` | `0x4AAAAAAA…` | From Cloudflare Turnstile widget. Mark as *encrypted*. Site key (public) lives in `index.html`. |
    | `ALLOWED_ORIGIN` | `https://partnerdepth.com` | Optional CORS lockdown. Defaults to `*`. |
 
 ### Routine deploys
@@ -99,8 +100,11 @@ For local Wrangler dev, create `.dev.vars` at the repo root (it's git-ignored):
 RESEND_API_KEY=re_test_xxxxxxxx
 BOOKING_EMAIL_TO=you@example.com
 BOOKING_EMAIL_FROM="PartnerDepth <onboarding@resend.dev>"
+TURNSTILE_SECRET_KEY=1x0000000000000000000000000000000AA
 ALLOWED_ORIGIN=*
 ```
+
+For local Turnstile testing, use Cloudflare's [test keys](https://developers.cloudflare.com/turnstile/troubleshooting/testing/) — they always pass verification.
 
 `onboarding@resend.dev` is Resend's universal test sender — useful before you've verified your own domain.
 
