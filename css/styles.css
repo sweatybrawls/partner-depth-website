@@ -632,3 +632,40 @@ textarea.input { resize: vertical; min-height: 80px; font-family: inherit; }
     scroll-behavior: auto !important;
   }
 }
+
+/* =========================================================================
+   Footer wordmark — built in CSS for proper contrast on navy background.
+   Replaces the vertical PNG lockup which had dark navy text on dark navy bg.
+   ========================================================================= */
+.footer__wordmark {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: var(--s-5);
+}
+.footer__mark {
+  width: 56px;
+  height: 56px;
+  display: block;
+}
+.footer__wordmark-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 0.95;
+}
+.footer__wordmark-partner {
+  font-family: var(--font-sans);
+  font-weight: var(--fw-bold);
+  font-size: 28px;
+  letter-spacing: var(--ls-tight);
+  color: #fff;
+  text-transform: uppercase;
+}
+.footer__wordmark-depth {
+  font-family: var(--font-sans);
+  font-weight: var(--fw-light);
+  font-size: 28px;
+  letter-spacing: var(--ls-widest);
+  color: var(--pd-lavender);
+  text-transform: uppercase;
+}
