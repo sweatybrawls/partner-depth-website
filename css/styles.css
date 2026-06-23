@@ -385,6 +385,136 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .card:hover { box-shadow: var(--shadow-sm); }
 .card .t-h3 { margin-top: 14px; margin-bottom: 12px; }
 
+/* ---------- Analysis Layer ---------- */
+.analysis-layer {
+  padding: var(--s-24) 0;
+  background: #fff;
+}
+.analysis-layer__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 520px;
+  gap: var(--s-16);
+  align-items: center;
+}
+.analysis-layer__title {
+  margin: var(--s-4) 0 var(--s-5);
+  max-width: 620px;
+}
+.analysis-layer__lead {
+  max-width: 660px;
+  margin-bottom: var(--s-8);
+}
+.analysis-layer__items {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--s-5);
+  max-width: 680px;
+}
+.analysis-layer__items > div {
+  border-left: 2px solid var(--pd-purple);
+  padding-left: var(--s-4);
+}
+.analysis-layer__items h3 {
+  margin: 0 0 6px;
+  color: var(--pd-navy);
+  font-size: var(--fs-18);
+  font-weight: var(--fw-semibold);
+}
+.analysis-layer__items p {
+  margin: 0;
+  color: var(--fg-2);
+  font-size: var(--fs-15);
+  line-height: var(--lh-relaxed);
+}
+.analysis-panel {
+  background: var(--pd-navy);
+  color: #fff;
+  border-radius: var(--r-xl);
+  padding: var(--s-6);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+.analysis-panel__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s-4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+  padding-bottom: var(--s-4);
+  margin-bottom: var(--s-5);
+}
+.analysis-panel__header span {
+  color: var(--pd-lavender);
+  font-size: var(--fs-13);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-widest);
+  text-transform: uppercase;
+}
+.analysis-panel__header strong {
+  font-size: var(--fs-18);
+  font-weight: var(--fw-semibold);
+}
+.analysis-panel__metric-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s-3);
+  margin-bottom: var(--s-5);
+}
+.analysis-panel__metric-row > div {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--r-md);
+  padding: var(--s-4);
+}
+.analysis-panel__metric-row span,
+.analysis-panel__row span {
+  display: block;
+}
+.analysis-panel__metric-row span {
+  min-height: 34px;
+  color: var(--navy-200);
+  font-size: var(--fs-12);
+  line-height: var(--lh-normal);
+}
+.analysis-panel__metric-row strong {
+  display: block;
+  margin-top: 8px;
+  font-size: var(--fs-28);
+  line-height: 1;
+  font-weight: var(--fw-bold);
+}
+.analysis-panel__table {
+  background: #fff;
+  color: var(--fg-1);
+  border-radius: var(--r-md);
+  overflow: hidden;
+}
+.analysis-panel__row {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) 80px 80px;
+  gap: var(--s-3);
+  align-items: center;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border-1);
+  font-size: var(--fs-13);
+  line-height: var(--lh-normal);
+}
+.analysis-panel__row:last-child { border-bottom: 0; }
+.analysis-panel__row--head {
+  color: var(--fg-3);
+  background: var(--bg-tint);
+  font-size: var(--fs-12);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+}
+.analysis-panel__note {
+  margin: var(--s-4) 0 0;
+  color: var(--navy-200);
+  font-size: var(--fs-12);
+  letter-spacing: var(--ls-wide);
+}
+
 /* ---------- Process ---------- */
 .process { padding: var(--s-24) 0; }
 .process__title { margin: var(--s-4) 0 var(--s-12); max-width: 600px; }
@@ -665,6 +795,13 @@ textarea.input { resize: vertical; min-height: 80px; font-family: inherit; }
     grid-template-columns: 1fr 1fr;
     gap: var(--s-6);
   }
+  .analysis-layer__grid {
+    grid-template-columns: 1fr;
+    gap: var(--s-10);
+  }
+  .analysis-panel {
+    max-width: 620px;
+  }
   .process__grid,
   .metrics__grid {
     grid-template-columns: 1fr;
@@ -686,6 +823,12 @@ textarea.input { resize: vertical; min-height: 80px; font-family: inherit; }
 
 @media (max-width: 560px) {
   .services__grid { grid-template-columns: 1fr; }
+  .analysis-panel__metric-row { grid-template-columns: 1fr; }
+  .analysis-panel__row {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+  .analysis-panel__row--head { display: none; }
   .footer__inner { grid-template-columns: 1fr; }
   .modal__panel { padding: var(--s-6); }
   .form__actions { flex-direction: column; }
