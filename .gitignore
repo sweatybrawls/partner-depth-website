@@ -20,6 +20,9 @@ build/
 out/
 .cache/
 
+# Local WordPress development copy hosted on Unraid
+wordpress-partnerdepth/
+
 # OS
 .DS_Store
 Thumbs.db

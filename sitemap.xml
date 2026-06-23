@@ -31,6 +31,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://partnerdepth.com/about</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://partnerdepth.com/privacy</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
