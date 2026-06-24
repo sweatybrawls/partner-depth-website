@@ -1204,6 +1204,11 @@ textarea.input { resize: vertical; min-height: 80px; font-family: inherit; }
   font-weight: var(--fw-bold);
   font-size: var(--fs-18);
 }
+.pg-byline__avatar--photo {
+  object-fit: cover;
+  border: 2px solid #fff;
+  box-shadow: var(--shadow-sm);
+}
 .pg-byline__name { font-weight: var(--fw-semibold); color: var(--pd-navy); margin: 0; }
 .pg-byline__role { font-size: var(--fs-14); color: var(--fg-3); margin: 0; }
 
